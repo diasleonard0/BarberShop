@@ -11,7 +11,7 @@ import view.Login;
  *
  * @author leodi
  */
-public class LoginHelper {
+public class LoginHelper implements IHelper{
     
     private final Login view;
 
@@ -19,6 +19,7 @@ public class LoginHelper {
         this.view = view;
     }
     
+    @Override
     public Usuario obterModelo() {
         String nome = view.getCampoUsuario().getText();
         String senha = view.getCampoSenha().getText();
@@ -35,6 +36,7 @@ public class LoginHelper {
         view.getCampoSenha().setText(senha);
     }
     
+    @Override
     public void limparTela() {
         view.getCampoUsuario().setText("");
         view.getCampoSenha().setText("");

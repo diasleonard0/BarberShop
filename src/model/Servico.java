@@ -19,6 +19,11 @@ public class Servico {
         this.descricao = descricao;
         this.valor = valor;
     }
+    
+    @Override
+    public String toString() {
+        return getDescricao();
+    }
 
     public String getDescricao() {
         return descricao;
@@ -43,7 +48,5 @@ public class Servico {
     public void setId(int id) {
         this.id = id;
     }
-    
-    
-    
+
 }

@@ -29,6 +29,11 @@ public class Cliente extends Pessoa{
         this.cep = cep;
     }
     
+    @Override
+    public String toString(){
+        return getNome(); // Esse macete faz com que na escolha do Cliente na Agenda apareça o nome e não onde ele está armazenado
+    }
+    
     
 
     public String getEndereco() {
@@ -47,6 +52,4 @@ public class Cliente extends Pessoa{
         this.cep = cep;
     }
 
-    
-    
 }

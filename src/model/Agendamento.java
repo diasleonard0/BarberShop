@@ -7,6 +7,8 @@ package model;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -23,12 +25,21 @@ public class Agendamento {
 
     
     
-    public Agendamento(int id, Cliente cliente, Servico servico, float valor, String data) throws ParseException {
+    public Agendamento(int id, Cliente cliente, Servico servico, float valor, String data) {
         this.id = id;
         this.cliente = cliente;
         this.servico = servico;
         this.valor = valor;
-        this.data = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(data);
+        try {
+            this.data = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(data);
+        } catch (ParseException ex) {
+            Logger.getLogger(Agendamento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public Agendamento(int id, Cliente cliente, Servico servico, float valor, String data, String observacao) throws ParseException {
+        this(id, cliente, servico, valor, data); // Chamou o outro construtor
+        this.observacao = observacao;
     }
 
     
